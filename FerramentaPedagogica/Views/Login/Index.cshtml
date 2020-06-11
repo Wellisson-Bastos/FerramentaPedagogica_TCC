@@ -1,0 +1,53 @@
+﻿@model FerramentaPedagogica.Models.CadastroViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row">
+    <div class="col m8 div-imagem hide-on-med-and-down">
+        <img class="imagem-criancas right" src="~/images/Criancas.jpg" />
+    </div>
+    @using (Html.BeginForm("IniciarJogo", "Login", FormMethod.Post, new { @id = "frmCadastroUsuario" }))
+    {
+        <div class="col s12 l4 div-cadastro">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <h2>Criar uma nova conta</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s8 offset-s2">
+                    <div class="input-field center-align div-input-cadastro">
+                        @Html.LabelFor(Model => Model.Usuario)
+                        @Html.TextBoxFor(Model => Model.Usuario, new { id = "usuario-cadastro", @class = "validate" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Usuario, "", new { @class = "text-error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s8 offset-s2">
+                    <div class="input-field center-align div-input-cadastro">
+                        @Html.LabelFor(Model => Model.Senha)
+                        @Html.PasswordFor(Model => Model.Senha, new { id = "senha-cadastro", @class = "validate" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s8 offset-s2">
+                    <div class="input-field center-align div-input-cadastro">
+                        @Html.LabelFor(Model => Model.ConfirmacaoSenha)
+                        @Html.PasswordFor(Model => Model.ConfirmacaoSenha, new { id = "confirmar-senha", @class = "validate" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.ConfirmacaoSenha, "", new { @class = "text-error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s8 offset-s2 m6 offset-m3 center-align">
+                    <a class="waves-effect waves-light btn botao-cadastrar grey darken-3">Cadastrar-se</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

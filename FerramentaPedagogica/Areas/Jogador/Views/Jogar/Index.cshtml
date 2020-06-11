@@ -1,0 +1,39 @@
+﻿@model FerramentaPedagogica.Areas.Jogador.Models.JogadorViewModel
+
+@{
+    ViewData["Title"] = "Jogar";
+}
+
+@using (Html.BeginForm("IniciarJogo", "Jogar", FormMethod.Post, new { @id = "frmDadosJogo" }))
+{
+    <div class="row">
+        <div class="col s12">
+            @Html.LabelFor(Model => Model.Jogador)
+            <div class="center-align">
+                @Html.TextBoxFor(Model => Model.Jogador, new { id = "jogador", @class = "validate text-padrao" })
+            </div>
+            @Html.ValidationMessageFor(model => model.Jogador, "", new { @class = "text-error" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            @Html.LabelFor(Model => Model.CodigoSessao)
+            <div class="center-align">
+                @Html.TextBoxFor(Model => Model.CodigoSessao, new { id = "codigo-sessao", @class = "validate text-padrao" })
+            </div>
+            @Html.ValidationMessageFor(model => model.CodigoSessao, "", new { @class = "text-error" })
+        </div>
+    </div>
+    <div class="row div-botao">
+        <div class="col s12 div-botao">
+            <a class="btn waves-effect waves-light btn-large botao-iniciar green">Jogar<i class="material-icons right">play_arrow</i></a>
+        </div>
+    </div>
+}
+
+<link rel="stylesheet" href="~/css/Global.css" />
+<link rel="stylesheet" href="~/css/Jogar.css" />
+
+@section scripts {
+    <script src="~/js/Jogador/Jogar.js"></script>
+}

@@ -1,0 +1,27 @@
+﻿label {
+    color: white;
+    font-size: 30px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.text-padrao {
+    background-color: white !important;
+    border-radius: 6px !important;
+    padding-left: 10px !important;
+    height: 50px !important;
+    font-size: 26px !important;
+}
+
+.div-botao {
+    text-align: center;
+}
+
+.botao-iniciar{
+    border-radius: 16px;
+    font-size: 24px;
+}
+
+.material-icons{
+    font-size: 32px !important;
+}

@@ -1,0 +1,67 @@
+﻿body {
+    background-color: #f5f5f5;
+}
+
+nav {
+    box-shadow: none !important;
+    background-color: #34A4D4;
+    height: 70px;
+}
+
+ul{
+    transform: translateX(60%);
+}
+
+.circle {
+    vertical-align: middle;
+    max-height: 48px;
+}
+
+.nome-usuario {
+    margin: 0 15px 0 0;
+    display: inline-block;
+    height: 48px;
+    border-bottom: 2px solid white;
+}
+
+.div-usuario {
+    margin-left: 15px;
+}
+
+.btn {
+    border-radius: 10px;
+}
+
+.btn i {
+    margin: 0 0 0 5px;
+}
+
+.div-cabecalho{
+    text-align: right;
+}
+
+.div-right {
+    width: 100%;
+    float: right;
+}
+
+.div-logo {
+    max-height: 70px;
+}
+
+.img-logo {
+    max-height: 48px;
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 992px) {
+    nav {
+        height: 245px;
+    }
+    .div-logo {
+        text-align: center;
+    }
+    .div-cabecalho {
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,28 @@
+﻿.div{
+    display: inline-block;
+}
+
+.text-filtragem {
+    width: 80%;
+}
+
+.botao-filtragem {
+    margin-left: 30px;
+}
+
+.card-content {
+    background-color: #34A4D4;
+}
+
+.nome-user {
+    display: inline-block;
+    color: white;
+    margin-left: 15px !important;
+    font-family: 'Lucida Sans';
+}
+
+.card-title {
+    color: white;
+    font-family: 'Lucida Sans';
+    font-weight: bold;
+}

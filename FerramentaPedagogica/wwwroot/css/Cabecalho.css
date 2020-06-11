@@ -1,0 +1,13 @@
+﻿.div-logo {
+    text-align: center;
+    margin-bottom: 50px
+}
+
+.img-logo {
+    max-height: 48px;
+    margin-top: 20px;
+}
+
+body {
+    background-color: #34A4D4;
+}

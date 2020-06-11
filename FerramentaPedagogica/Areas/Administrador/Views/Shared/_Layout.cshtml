@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Plaquiz</title>
+    <link rel="stylesheet" href="~/css/materialize.css" />
+    <link rel="stylesheet" href="~/css/Menu.css" />
+    <link rel="stylesheet" href="~/css/Global.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <div class="row">
+                    <div class="col s12 l6 div-logo">
+                        <img src="~/images/Logo.png" class="img-logo">
+                    </div>
+                    <div class="div-cabecalho col s12 l2 valign-wrapper div-usuario right">
+                        <div class="div-right">
+                            <p class="nome-usuario">Wellisson</p>
+                            <img src="~/images/sem-imagem.jpg" class="circle responsive-img z-depth-1">
+                        </div>
+                    </div>
+                    <div class="div-cabecalho col s12 l4 valign-wrapper right">
+                        <div class="div-right">
+                            <ul>
+                                <li><a href="sass.html">Início  <i class="material-icons right">home</i></a></li>
+                                <li><a href="badges.html">Explorar <i class="material-icons right">explore</i></a></li>
+                                <li>
+                                    <a class="waves-effect waves-light btn">
+                                        Criar
+                                        <i class="material-icons right">add</i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="progress hide">
+            <div class="indeterminate"></div>
+        </div>
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/materialize.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery.form/jquery.form.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
