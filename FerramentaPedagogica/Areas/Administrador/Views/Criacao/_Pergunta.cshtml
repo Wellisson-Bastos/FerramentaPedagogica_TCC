@@ -1,0 +1,181 @@
+﻿@model FerramentaPedagogica.Areas.Administrador.Models.DTOPergunta
+
+@using (Html.BeginForm("EditarPergunta", "Criacao", FormMethod.Post, new { @id = "frmEditarPergunta" }))
+{
+    @Html.HiddenFor(model => model.Novo)
+    @Html.HiddenFor(model => model.Codigo)
+    @Html.HiddenFor(model => model.CodigoJogo)
+    @Html.HiddenFor(model => model.CodigoUsuario)
+    @Html.HiddenFor(model => model.UsuarioCriador)
+    @Html.HiddenFor(model => model.ImagemByte)
+    <div class="row div-superior">
+        <div class="col s12 l3">
+            <label for="quantity">Ordem (define a ordem em que a pergunta será exibida)</label>
+            @Html.EditorFor(model => model.Ordem, new { htmlAttributes = new { @type = "number", @min = "1", @step = "1", @max = "30" } })
+        </div>
+        <div class="col s12 l3 offset-l6">
+            @if (Model.UsuarioCriador)
+            {
+                <a id="btn-salvar-pergunta" class="waves-effect waves-light btn btn-acoes green right">
+                    Salvar
+                    <i class="material-icons right">done</i>
+                </a>
+
+                @if (!Model.Novo)
+                {
+                    <a id="btn-excluir-pergunta" class="waves-effect waves-light btn btn-acoes red right" data-ajax-url="/Excluir/@Model.Codigo">
+                        Excluir
+                        <i class="material-icons right">clear</i>
+                    </a>
+                }
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    @Html.TextAreaFor(model => model.Descricao, new { id = "input-descricao", placeholder = "Insira a pergunta", @class = "materialize-textarea" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 l2 div-configs">
+            <div class="row">
+                <div class="col s12">
+                    <p class="range-field">
+                        <label for="Pontuacao">Pontuação</label>
+                        @Html.EditorFor(model => model.Pontuacao, new { htmlAttributes = new { @type = "range", @min = "100", @step = "100", @max = "1000" } })
+                    </p>
+                </div>
+                <div class="col s12">
+                    <p class="range-field">
+                        <label for="Tempo">Tempo (em segundos)</label>
+                        @Html.EditorFor(model => model.Tempo, new { htmlAttributes = new { @type = "range", @min = "20", @max = "120" } })
+                    </p>
+                </div>
+                <div class="col s12">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>Imagem</span>
+                            <input type="file" id="img-pergunta" name="img-pergunta" accept=".png,.jpg,.gif" />
+                            @Html.HiddenFor(model => model.Imagem)
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" name="text-img">
+                        </div>
+                    </div>
+                </div>
+                <div class="col s8">
+                    <div class="input-field">
+                        @Html.HiddenFor(model => model.URLYoutube)
+                        <input id="LinkYoutube" type="text" class="validate">
+                        <label for="LinkYoutube">Link do Youtube</label>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <a id="btn-adicionar-video" class="waves-effect waves-light btn-floating">
+                        <i class="material-icons">add</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 l7 div-midia">
+            @if (Model.ImagemByte != null)
+            {
+                <img id="img-inserida" src="@("data:image / png; base64," + Convert.ToBase64String(Model.ImagemByte))" />
+            }
+            else if (!string.IsNullOrEmpty(Model.URLYoutube))
+            {
+                <iframe id="videoYoutube" src="@Model.URLYoutube" type="text/html" width="700" height="345" frameborder="0" allowfullscreen></iframe>
+            }
+
+            <a id="btn-excluir-midia" class="waves-effect waves-light btn-floating red">
+                <i class="material-icons">clear</i>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 l6">
+            <div class="card">
+                <div class="card-content">
+                    <div class="row div-opcoes">
+                        <div class="col s1">
+                            <span class="opcao">A)</span>
+                        </div>
+                        <div class="col s9">
+                            @Html.TextBoxFor(model => model.RespostaA, new { placeholder = "Insira a resposta A", @class = "validate input-opcao" })
+                        </div>
+                        <div class="col s2 div-checkbox">
+                            <label>
+                                @Html.CheckBoxFor(model => model.RespostaACorreta)
+                                <span>Correta</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 l6">
+            <div class="card">
+                <div class="card-content">
+                    <div class="row div-opcoes">
+                        <div class="col s1">
+                            <span class="opcao">B)</span>
+                        </div>
+                        <div class="col s9">
+                            @Html.TextBoxFor(model => model.RespostaB, new { placeholder = "Insira a resposta B", @class = "validate input-opcao" })
+                        </div>
+                        <div class="col s2 div-checkbox">
+                            <label>
+                                @Html.CheckBoxFor(model => model.RespostaBCorreta)
+                                <span>Correta</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 l6">
+            <div class="card">
+                <div class="card-content">
+                    <div class="row div-opcoes">
+                        <div class="col s1">
+                            <span class="opcao">C)</span>
+                        </div>
+                        <div class="col s9">
+                            @Html.TextBoxFor(model => model.RespostaC, new { placeholder = "Caso queria, insira a resposta C", @class = "validate input-opcao" })
+                        </div>
+                        <div class="col s2 div-checkbox">
+                            <label>
+                                @Html.CheckBoxFor(model => model.RespostaCCorreta)
+                                <span>Correta</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 l6">
+            <div class="card">
+                <div class="card-content">
+                    <div class="row div-opcoes">
+                        <div class="col s1">
+                            <span class="opcao">D)</span>
+                        </div>
+                        <div class="col s9">
+                            @Html.TextBoxFor(model => model.RespostaD, new { placeholder = "Caso queria, insira a resposta D", @class = "validate input-opcao" })
+                        </div>
+                        <div class="col s2 div-checkbox">
+                            <label>
+                                @Html.CheckBoxFor(model => model.RespostaDCorreta)
+                                <span>Correta</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

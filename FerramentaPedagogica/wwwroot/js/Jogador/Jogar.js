@@ -4,8 +4,13 @@
 
     function initDadosJogo() {
         $("#frmDadosJogo").ajaxForm({
-            success: function () {
-                M.toast("Funcionou");
+            success: function (response) {
+                if (response.success) {
+                    window.location.href = response.url;
+                }
+                else {
+                    M.toast({ html: response.responseText, classes: 'rounded red' });
+                }
             },
             submitting: function () {
                 $('.progress').show();

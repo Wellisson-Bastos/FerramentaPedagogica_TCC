@@ -4,9 +4,12 @@ namespace FerramentaPedagogica.Models
 {
     public class CadastroViewModel
     {
+        public int Codigo { get; set; }
+
         #region DataAnnotations
         [Display(Name = "Usuário")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Nome de usuário é obrigatório")]
+        [StringLength(60, ErrorMessage = "O nome de usuário deve conter no máximo 60 caracteres.")]
         #endregion
         public string Usuario { get; set; }
 

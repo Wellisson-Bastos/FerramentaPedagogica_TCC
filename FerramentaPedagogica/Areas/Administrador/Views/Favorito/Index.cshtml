@@ -1,0 +1,38 @@
+﻿@model FerramentaPedagogica.Areas.Administrador.Models.FavoritoViewModel
+
+@{
+    ViewData["Title"] = "Favoritos";
+}
+
+<h2>Meus favoritos</h2>
+
+@if (Model.Jogos.Any())
+{
+    @foreach (var lJogo in Model.Jogos)
+    {
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s12 l9 div-card">
+                        <span class="text-name-game">@lJogo.Nome</span> <br>
+                        <span class="text-name-user">Usuário criador: @lJogo.NomeUsuario</span>
+                    </div>
+                    <div class="col s12 l3 div-card div-botoes right">
+                        <a class="btn-floating btn-large waves-effect waves-light blue botao-jogar-jogo" data-ajax-url="@Url.Action("IniciarJogo", "Favorito", new { Jogo = lJogo.Codigo })"><i class="material-icons">play_arrow</i></a>
+                        <a href="@Url.Action("Index", "Criacao", new { Usuario= Model.Usuario, Jogo = lJogo.Codigo })" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">format_list_numbered</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <p class="text-sem-jogos">Você ainda não possui jogos adicionados aos favoritos, explore as criações de outros usuários no menu "Explorar".</p>
+}
+
+@section scripts {
+    <script src="~/js/Administrador/Favorito/Favorito.js"></script>
+}
+
+<link rel="stylesheet" href="~/css/Favorito.css" />

@@ -19,27 +19,28 @@
                     <div class="col s12 l4 div-logo">
                         <img src="~/images/Logo.png" class="img-logo">
                     </div>
-                    <div class="div-cabecalho col s12 l2 offset-l3">
-                        @Html.LabelFor(Model => Model.Usuario, new { @class= "label-login" })<span class="label-login">:</span> 
-                        <div class="input-field inline">
-                            @Html.TextBoxFor(Model => Model.Usuario, new { id = "usuario-login", @class = "validate text-padrao" })
-                            @Html.ValidationMessageFor(model => model.Usuario, "", new { @class = "text-error" })
+                    @using (Html.BeginForm("LogarUsuario", "Login", FormMethod.Post, new { @id = "frmLogarUsuario" }))
+                    {
+                        <div class="div-cabecalho col s12 l2 offset-l3">
+                            @Html.LabelFor(Model => Model.Usuario, new { @class = "label-login" })<span class="label-login">:</span>
+                            <div class="input-field inline">
+                                @Html.TextBoxFor(Model => Model.Usuario, new { id = "usuario-login", @class = "validate text-padrao" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="div-cabecalho col s12 l2">
-                        @Html.LabelFor(Model => Model.Senha, new { @class = "label-login" })<span class="label-login">:</span>
-                        <div class="input-field inline">
-                            @Html.PasswordFor(Model => Model.Senha, new { id = "senha-login", @class = "validate text-padrao" })
-                            @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-error" })
+                        <div class="div-cabecalho col s12 l2">
+                            @Html.LabelFor(Model => Model.Senha, new { @class = "label-login" })<span class="label-login">:</span>
+                            <div class="input-field inline">
+                                @Html.PasswordFor(Model => Model.Senha, new { id = "senha-login", @class = "validate text-padrao" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="div-cabecalho col s12 l1">
-                        <a class="waves-effect waves-light btn botao-login grey darken-3">Entrar</a>
-                    </div>
+                        <div class="div-cabecalho col s12 l1">
+                            <a class="waves-effect waves-light btn botao-login grey darken-3">Entrar</a>
+                        </div>
+                    }
                 </div>
             </div>
         </nav>
-        <div class="progress hide">
+        <div class="progress" style="display: none">
             <div class="indeterminate"></div>
         </div>
     </header>

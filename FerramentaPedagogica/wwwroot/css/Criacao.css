@@ -1,0 +1,127 @@
+﻿body, html, .container, .row, .div-perguntas {
+    height: 100%;
+}
+
+body, html, .container, .row {
+    width: 100%;
+}
+
+body {
+    overflow: hidden;
+}
+
+h4 {
+    margin: 1.52rem 16px 40px 0;
+}
+
+#input-descricao {
+    font-size: 30px;
+    border: none;
+    color: #039be5;
+    text-align: center;
+}
+
+#img-inserida{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#btn-excluir-midia{
+    display: none;
+}
+
+.a-disabled {
+    pointer-events: none;
+}
+
+.container {
+    margin: 0;
+    max-width: none;
+}
+
+.collection-header{
+    text-align: center;
+}
+
+.div-perguntas {
+    padding: 0 !important;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#btn-adicionar-video{
+    margin-top: 22px;
+}
+
+.collection {
+    border: none !important;
+}
+
+.div-opcoes{
+    margin: 0;
+}
+
+.div-adicionar-pergunta, .div-favoritar-jogo{
+    text-align: center;
+}
+
+.btn-acoes {
+    margin: 20px 0 0 10px;
+}
+
+.collection a.collection-item {
+    color: #34A4D4 !important;
+}
+
+.collection .collection-item.active {
+    background-color: #34A4D4;
+    color: white !important;
+}
+
+.div-configs {
+    padding-left: 22px !important;
+}
+
+.div-checkbox{
+    margin-top: 15px;
+}
+
+.input-opcao {
+    margin-top: 5px !important;
+    font-size: 20px !important;
+}
+
+.div-midia {
+    margin-left: 60px !important;
+    border: 4px dotted grey;
+    height: 350px;
+    max-height: 350px !important;
+    text-align: center;
+}
+
+.div-superior {
+    margin: 0;
+    padding: 10px 15px 0 15px;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+.opcao {
+    font-size: 36px;
+    color: grey;
+}
+
+@media only screen and (max-width: 992px) {
+    body {
+        overflow: auto;
+    }   
+}
+
+@media only screen and (max-height: 700px) {
+    body {
+        overflow: auto;
+    }
+}

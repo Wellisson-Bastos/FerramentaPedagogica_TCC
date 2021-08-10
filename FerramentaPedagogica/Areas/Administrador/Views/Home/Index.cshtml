@@ -1,35 +1,39 @@
-﻿@{
+﻿@model FerramentaPedagogica.Areas.Administrador.Models.HomeViewModel
+
+@{
     ViewData["Title"] = "Início";
 }
 
 <h2>Meus jogos</h2>
 
-<div class="card">
-    <div class="card-content">
-        <div class="div-card">
-            <span class="text-name-game">Nome do Jogo</span> <br>
-            <span class="text-data-criacao">Data da criação: 29/03/2000</span>
+@if (Model.Jogos.Any())
+{
+    @foreach (var lJogo in Model.Jogos)
+    {
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s12 l9 div-card">
+                        <span class="text-name-game">@lJogo.Nome</span> <br>
+                        <span class="text-data-criacao">Data da criação: @lJogo.DataCriacao.ToString("dd/MM/yyyy")</span>
+                    </div>
+                    <div class="col s12 l3 div-card div-botoes right">
+                        <a class="btn-floating btn-large waves-effect waves-light blue botao-jogar-jogo" data-ajax-url="@Url.Action("IniciarJogo", "Home", new { Jogo = lJogo.Codigo })"><i class="material-icons">play_arrow</i></a>
+                        <a href="@Url.Action("Index", "Criacao", new { Usuario= Model.Usuario, Jogo = lJogo.Codigo })" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">edit</i></a>
+                        <a class="btn-floating btn-large waves-effect waves-light red botao-excluir-jogo" data-ajax-url="@Url.Action("ExcluirJogo", "Home", new { Jogo = lJogo.Codigo })"><i class="material-icons">clear</i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="div-card div-botoes right">
-            <a class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">play_arrow</i></a>
-            <a class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">edit</i></a>
-            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">clear</i></a>
-        </div>
-    </div>
-</div>
+    }
+}
+else
+{
+    <p class="text-sem-jogos">Você ainda não possui jogos criados, comece agora mesmo clicando no botão "Criar" no menu.</p>
+}
 
-<div class="card">
-    <div class="card-content">
-        <div class="div-card">
-            <span class="text-name-game">Nome do Jogo</span> <br>
-            <span class="text-data-criacao">Data da criação: 29/03/2000</span>
-        </div>
-        <div class="div-card div-botoes right">
-            <a class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">play_arrow</i></a>
-            <a class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">edit</i></a>
-            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">clear</i></a>
-        </div>
-    </div>
-</div>
+@section scripts {
+    <script src="~/js/Administrador/Home/Home.js"></script>
+}
 
 <link rel="stylesheet" href="~/css/Inicio.css" />

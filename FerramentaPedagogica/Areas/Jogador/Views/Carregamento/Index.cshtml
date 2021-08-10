@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Aguarde";
+}
+
+@Html.Hidden("Pergunta", ViewData["Pergunta"])
+@Html.Hidden("Jogador", ViewData["Jogador"])
+
+<div class="div-loading" data-ajax-url="@Url.Action("VerificarJogo", "Carregamento", new { Jogador = ViewData["Jogador"], Sessao = ViewData["Sessao"], PerguntaAtual = ViewData["PerguntaAtual"] })">
+    <div class="lds-facebook"><div></div><div></div><div></div></div>
+    <h2>Aguarde...</h2>
+</div>
+
+@section scripts {
+    <script src="~/js/Jogador/Carregamento.js"></script>
+}
+
+<link rel="stylesheet" href="~/css/Carregamento.css" />

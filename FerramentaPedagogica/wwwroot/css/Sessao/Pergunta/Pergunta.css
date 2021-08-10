@@ -1,0 +1,30 @@
+﻿.div-opcoes{
+    margin-bottom: 0;
+}
+
+.opcao, .texto-opcao {
+    font-size: 42px;
+    color: #424242;
+}
+
+#texto-pergunta {
+    font-size: 45px;
+    text-align: center;
+    color: #424242;
+}
+
+.div-midia {
+    height: 475px;
+    max-height: 475px !important;
+    text-align: center;
+}
+
+.midia{
+    max-height: 100%;
+    max-width: 100%;
+    min-height: 100%;
+}
+
+.div-logo{
+    margin-bottom: 0;
+}

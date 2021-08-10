@@ -1,11 +1,15 @@
-﻿@{
-    ViewData["Title"] = "Pergunta 1";
+﻿@model FerramentaPedagogica.Areas.Jogador.Models.Pergunta.PerguntaViewModel
+
+@{
+    ViewData["Title"] = "Pergunta";
 }
+
+@Html.Hidden("tempoPergunta", Model.Tempo, new { id = "tempoPergunta" })
 
 <div class="row">
     <div class="col s12 div-timer">
         <div class="item">
-            <h2 id="tempo-pergunta">10</h2>
+            <h2 id="tempo-pergunta" data-ajax-url="@Url.Action("ResponderPergunta", "Pergunta", new { Jogador = Model.CodigoJogador, Sessao = Model.CodigoSessao, PerguntaAtual = Model.PerguntaAtual })">@Model.Tempo</h2>
             <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
                 <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#6fdb6f" fill="none" />
             </svg>
@@ -13,18 +17,26 @@
     </div>
 </div>
 <div class="row">
-    <div class="col s6 div-opcao red">
+    <div class="col s6 div-opcao red waves-effect waves-light" data-resposta="A">
         <span class="opcao">A</span>
     </div>
-    <div class="col s6 div-opcao blue">
+    <div class="col s6 div-opcao blue waves-effect waves-light" data-resposta="B">
         <span class="opcao">B</span>
     </div>
-    <div class="col s6 div-opcao yellow">
-        <span class="opcao">C</span>
-    </div>
-    <div class="col s6 div-opcao green">
-        <span class="opcao">D</span>
-    </div>
+
+    @if (Model.NrRespostas >= 3)
+    {
+        <div class="col s6 div-opcao yellow waves-effect waves-light" data-resposta="C">
+            <span class="opcao">C</span>
+        </div>
+    }
+
+    @if (Model.NrRespostas >= 4)
+    {
+        <div class="col s6 div-opcao green waves-effect waves-light" data-resposta="D">
+            <span class="opcao">D</span>
+        </div>
+    }
 </div>
 
 <link rel="stylesheet" href="~/css/Pergunta.css" />

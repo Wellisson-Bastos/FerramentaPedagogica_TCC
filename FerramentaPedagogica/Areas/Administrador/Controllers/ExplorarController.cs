@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using FerramentaPedagogica.Areas.Administrador.Models;
+using FerramentaPedagogica.Areas.Administrador.Services.Explorar;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FerramentaPedagogica.Areas.Administrador.Controllers
@@ -10,9 +8,28 @@ namespace FerramentaPedagogica.Areas.Administrador.Controllers
     [Route("Explorar")]
     public class ExplorarController : Controller
     {
-        public IActionResult Index()
+        [Route("Index")]
+        public IActionResult Index(int Usuario)
         {
-            return View();
+            var lModel = new ExplorarViewModel();
+
+            var lExplorarService = new ExplorarService();
+
+            lModel.CodigoUsuario = Usuario;
+            lModel.Jogos = lExplorarService.ObterListaJogos(Usuario);
+
+            ViewData["Usuario"] = Usuario;
+
+            return View(lModel);
+        }
+
+        public PartialViewResult _ListaJogos(int Usuario, string TermoPesquisa) 
+        {
+            var lExplorarService = new ExplorarService();
+
+            var lJogos = lExplorarService.ObterListaJogos(Usuario, TermoPesquisa);
+
+            return PartialView(lJogos);
         }
     }
 }

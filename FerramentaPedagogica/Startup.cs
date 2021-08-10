@@ -25,6 +25,8 @@ namespace FerramentaPedagogica
         {
             services.AddControllersWithViews();
 
+            services.AddProgressiveWebApp();
+
             services.AddRazorPages()
                 .AddViewOptions(options =>
                 {
@@ -51,12 +53,16 @@ namespace FerramentaPedagogica
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "Administrador",
                     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "SessaoJogo",
+                    pattern: "{area:exists}/{controller=Inicio}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "Jogador",
                     pattern: "{area:exists}/{controller=Jogar}/{action=Index}/{id?}");

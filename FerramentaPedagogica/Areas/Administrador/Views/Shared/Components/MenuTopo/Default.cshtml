@@ -1,0 +1,33 @@
+﻿@model FerramentaPedagogica.Areas.Administrador.Models.MenuTopoViewModel
+
+<div class="row">
+    <div class="col s12 l5 div-logo">
+        <img src="~/images/Logo.png" class="img-logo">
+    </div>
+    <div class="div-cabecalho col s12 l1 valign-wrapper right">
+        <ul>
+            <li><a href="@Url.Action("Index", "Login", new { Area = "" })">Sair <i class="material-icons right">exit_to_app</i></a></li>
+        </ul>
+    </div>
+    <div class="div-cabecalho col s12 l2 valign-wrapper div-usuario right">
+        <div class="waves-effect waves-light div-right div-abre-modal" data-ajax-url="@Url.Action("_DadosUsuario", "Menu", new { Usuario = Model.Codigo })">
+            <p class="nome-usuario">@Model.Usuario</p>
+            <img src="@(Model.Foto == null ? @Url.Content("~/images/sem-imagem.jpg") : "data:image / png; base64," + Convert.ToBase64String(Model.Foto))" class="circle responsive-img z-depth-1">
+        </div>
+    </div>
+    <div class="div-cabecalho col s12 l4 valign-wrapper right">
+        <div class="div-right">
+            <ul>
+                <li><a href="@Url.Action("Index", "Home", new { Usuario = Model.Codigo })">Início  <i class="material-icons right">home</i></a></li>
+                <li><a href="@Url.Action("Index", "Favorito", new { Usuario = Model.Codigo })">Favoritos <i class="material-icons right">star</i></a></li>
+                <li><a href="@Url.Action("Index", "Explorar", new { Usuario = Model.Codigo })">Explorar <i class="material-icons right">explore</i></a></li>
+                <li>
+                    <a id="btn-criar-jogo" class="waves-effect waves-light btn" data-ajax-url="@Url.Action("_CriarJogo", "Menu", new { Usuario = Model.Codigo })">
+                        Criar
+                        <i class="material-icons right">add</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Carregando";
+}
+
+<div class="row center-align">
+    <div class="col s12">
+        <h1 id="contador" data-ajax-url="@Url.Action("Index", "PerguntaSessao", new { Sessao = ViewData["Sessao"], Pergunta = ViewData["Pergunta"] })">8</h1>
+    </div>
+</div>
+
+<audio id="efeitoSonoro" loop src="~/sounds/EfeitoRelogio.mp3" autoplay></audio>
+
+<link rel="stylesheet" href="~/css/Sessao/Contador/Contador.css" />
+
+@section scripts {
+    <script src="~/js/Sessao/Contador/Contador.js"></script>
+}

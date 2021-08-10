@@ -1,0 +1,64 @@
+﻿@model FerramentaPedagogica.Areas.Administrador.Models.CriacaoViewModel
+
+<div class="modal-content">
+    @using (Html.BeginForm("CriarJogo", "Menu", FormMethod.Post, new { @id = "frmCriarJogo" }))
+    {
+        <div class="col s12 l4 div-cadastro">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <h2 class="titulo-form">Criar jogo</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s8 offset-s2">
+                    <span class="label-fake">
+                        * Campos obrigatórios
+                    </span>
+                </div>
+            </div>
+            @Html.Hidden("UsuarioCodigo", Model.UsuarioCodigo)
+            <div class="row">
+                <div class="col s8 offset-s2">
+                    <div class="input-field div-input-cadastro">
+                        @Html.LabelFor(Model => Model.Titulo)
+                        @Html.TextBoxFor(Model => Model.Titulo, new { id = "titulo-jogo", @class = "validate" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s8 offset-s2">
+                    <div class="input-field div-input-cadastro">
+                        @Html.LabelFor(Model => Model.Descricao)
+                        @Html.TextAreaFor(Model => Model.Descricao, new { id = "descricao-jogo", @class = "validate materialize-textarea" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s8 offset-s2">
+                    <span class="label-fake">
+                        Imagem da capa
+                    </span>
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>Arquivo</span>
+                            <input type="file" id="img-jogo" name="img-jogo" accept=".png,.jpg" />
+                            @Html.Hidden("CapaBase64", Model.CapaBase64)
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" name="text-foto">
+                        </div>
+                    </div>
+                    <span class="label-fake">(Imagem que será exibida para os usuários no menu "Explorar")</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s8 offset-s2 m7 offset-m3 center-align">
+                    <a id="botao-criar-jogo" class="waves-effect waves-light btn botoes-acoes green right">Criar</a>
+                    <a class="waves-effect waves-light btn botoes-acoes modal-close red right">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

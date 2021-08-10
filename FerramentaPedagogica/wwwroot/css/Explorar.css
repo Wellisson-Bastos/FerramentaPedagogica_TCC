@@ -6,7 +6,7 @@
     width: 80%;
 }
 
-.botao-filtragem {
+.div-botao-filtragem {
     margin-left: 30px;
 }
 
@@ -25,4 +25,14 @@
     color: white;
     font-family: 'Lucida Sans';
     font-weight: bold;
+}
+
+.imagem-jogo {
+    max-height: 185px;
+}
+
+.div-title-card{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }

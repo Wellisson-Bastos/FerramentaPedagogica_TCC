@@ -8,8 +8,15 @@ nav {
     height: 70px;
 }
 
-ul{
-    transform: translateX(60%);
+.titulo-form{
+    font-size: 2.4em;
+    font-family: 'Lucida Sans';
+    color: #34A4D4;
+}
+
+ul {
+    float: right;
+    clear: both;
 }
 
 .circle {
@@ -25,6 +32,10 @@ ul{
 }
 
 .div-usuario {
+    margin-left: 15px;
+}
+
+.botoes-acoes{
     margin-left: 15px;
 }
 
@@ -52,6 +63,12 @@ ul{
 .img-logo {
     max-height: 48px;
     margin-top: 10px;
+}
+
+.label-fake {
+    color: #9e9e9e;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 1rem;
 }
 
 @media only screen and (max-width: 992px) {

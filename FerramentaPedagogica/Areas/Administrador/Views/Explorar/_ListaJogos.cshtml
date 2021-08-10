@@ -1,0 +1,22 @@
+﻿@model List<FerramentaPedagogica.Areas.Administrador.Models.DTOJogoExplorar>
+
+@foreach (var lJogo in Model)
+{
+    <div class="col s12 m6 l3">
+        <a class="card div-explorar" href="@Url.Action("Index", "Criacao", new { Usuario = ViewData["Usuario"], Jogo = lJogo.Codigo })">
+            <div class="card-image">
+                <img class="imagem-jogo" src="@(lJogo.CapaJogo == null ? @Url.Content("~/images/default-jogo.png") : "data:image / png; base64," + Convert.ToBase64String(lJogo.CapaJogo))">
+            </div>
+            <div class="card-content">
+                <div class="center-align div-title-card">
+                    <span class="card-title truncate">@lJogo.Nome</span>
+                </div>
+                <div>
+                    <img src="@(lJogo.FotoUsuario == null ? @Url.Content("~/images/sem-imagem.jpg") : "data:image / png; base64," + Convert.ToBase64String(lJogo.FotoUsuario))" 
+                         class="circle responsive-img z-depth-1">
+                    <p class="nome-user">@lJogo.NomeUsuario</p>
+                </div>
+            </div>
+        </a>
+    </div>
+}

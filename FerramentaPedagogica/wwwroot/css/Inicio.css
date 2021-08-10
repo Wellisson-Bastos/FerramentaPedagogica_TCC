@@ -15,6 +15,12 @@
     padding: 24px 40px !important;
 }
 
+.modal-title {
+    font-size: 2.4em;
+    font-family: 'Lucida Sans';
+    color: #34A4D4;
+}
+
 .text-name-game {
     padding: 0 8px;
     text-decoration: none;
@@ -43,4 +49,13 @@
 
 .div-botoes {
     padding: 22px 0 !important;
+    text-align: right;
+}
+
+.text-sem-jogos {
+    font-family: "Lucida Sans";
+    font-size: 20px;
+    text-align: center;
+    margin-top: 50px;
+    color: #5D5D5D;
 }

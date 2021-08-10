@@ -1,0 +1,61 @@
+﻿h2 {
+    font-size: 2.4em;
+    font-family: 'Lucida Sans';
+    color: #5D5D5D;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+}
+
+.card-content {
+    padding: 24px 40px !important;
+}
+
+.modal-title {
+    font-size: 2.4em;
+    font-family: 'Lucida Sans';
+    color: #34A4D4;
+}
+
+.text-name-game {
+    padding: 0 8px;
+    text-decoration: none;
+    border-bottom: 3px solid #34A4D4;
+    font-size: 2.5em;
+    font-family: 'Lucida Sans';
+    color: #34A4D4;
+    display: inline-block;
+    margin-bottom: 18px;
+}
+
+.div-card {
+    display: inline-block;
+}
+
+.text-name-user {
+    font-family: 'Lucida Sans';
+    color: #5D5D5D;
+    font-weight: bold;
+}
+
+.btn-floating {
+    margin: 0 4px;
+    padding: 10% 0;
+}
+
+.div-botoes {
+    padding: 22px 0 !important;
+    text-align: right;
+}
+
+.text-sem-jogos {
+    font-family: "Lucida Sans";
+    font-size: 20px;
+    text-align: center;
+    margin-top: 50px;
+    color: #5D5D5D;
+}

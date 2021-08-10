@@ -2,15 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>28885d76-408d-4899-8b2c-ade264c7194c</UserSecretsId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="UnitOfWork\**" />
-    <Content Remove="UnitOfWork\**" />
-    <EmbeddedResource Remove="UnitOfWork\**" />
-    <None Remove="UnitOfWork\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="jQuery.Validation" Version="1.19.1" />

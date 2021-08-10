@@ -1,5 +1,50 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model FerramentaPedagogica.Areas.Administrador.Models.PerguntaViewModel
+
 @{
+    ViewData["Title"] = "Criação";
 }
+
+@Html.HiddenFor(model => model.CodigoJogo)
+@Html.HiddenFor(model => model.CodigoUsuario)
+
+<div class="row">
+    <div class="col s12 l2 div-perguntas">
+        @if (!Model.UsuarioCriador)
+        {
+            <div class="div-favoritar-jogo">
+                <a id="btn-favoritar-jogo" class="waves-effect waves-light btn btn-acoes amber darken-1" data-favorito="@(Model.JogoFavoritado ? "S" : "N")" data-ajax-url="/Favoritar/@Model.CodigoUsuario/@Model.CodigoJogo">
+                    @(Model.JogoFavoritado ? "Remover dos favoritos" : "Adicionar aos favoritos")
+                    <i class="material-icons right">@(Model.JogoFavoritado ? "star" : "star_border")</i>
+                </a>
+            </div>
+        }
+        <div class="collection">
+            <a href="#!" class="collection-header">
+                <h4>
+                    Perguntas
+                </h4>
+            </a>
+            @foreach (var lItem in Model.Perguntas)
+            {
+                <a href='#!' class='collection-item truncate' data-codigo-pergunta="@lItem.Codigo" data-ajax-url="@Url.Action("_EditarPergunta", "Criacao", new { Usuario = Model.CodigoUsuario, Jogo = Model.CodigoJogo })">@lItem.Texto</a>
+            }
+        </div>
+        @if (Model.UsuarioCriador)
+        {
+            <div class="div-adicionar-pergunta">
+                <a id="btn-adicionar-pergunta" class="waves-effect waves-light btn purple darken-1" data-ajax-url="@Url.Action("_EditarPergunta", "Criacao", new { Usuario = Model.CodigoUsuario, Jogo = Model.CodigoJogo })">
+                    Adicionar pergunta
+                </a>
+            </div>
+        }
+    </div>
+    <div id="div-pergunta" class="col s12 l10">
+
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/js/Administrador/Criacao/Criacao.js"></script>
+}
+
+<link rel="stylesheet" href="~/css/Criacao.css" />
